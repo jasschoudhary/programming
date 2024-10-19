@@ -1,38 +1,38 @@
 package Array;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
-//// 
+//// o(n) taking // copying ele in a new array 
 public class deleElementFromArr {
 	
-	static int [] deleEle(int arr1[] , int index) {
-		int newArr[] = new int[arr1.length-1] ;
-		
-		for (int i = 0; i < arr1.length; i++) {
-			if (i<arr1[index]) {
-				newArr[i] = arr1[i] ;
-			} else {
-				
-
-			}
-		}
-		
-	}
 	
-	
-	public static void main(String[] args) {
-		Scanner sc  = new Scanner(System.in) ;
-		System.out.println("enter arr size : ");
-		int size = sc.nextInt() ;
-		int arr1[] = new int[size] ;
-		System.out.println("enter arr elements : ");
-		for (int i = 0; i < arr1.length; i++) {
-			arr1[i]= sc.nextInt() ;
-		}
-		int index = sc.nextInt() ;
-		System.out.println("enter index of element that u wanna delete : ");
-		
-	}
+	public static int[] deleteElement(int[] array, int index) {
+        // Check if index is valid
+        if (index < 0 || index >= array.length) {
+            throw new IllegalArgumentException("Index out of bounds");
+        }
+        // Create a new array with one less element
+        int[] newArray = new int[array.length - 1];
+        // Copy elements except the one at the specified index
+        for (int i = 0, j = 0; i < array.length; i++) {
+            if (i != index) {
+                newArray[j++] = array[i];
+            }
+        }
+        return newArray; // Return the new array
+    }
 
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int indexToDelete = 2; // Element to delete (value 3)
+
+        try {
+            int[] newArray = deleteElement(array, indexToDelete);
+            System.out.println("Array after deletion: " + Arrays.toString(newArray));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

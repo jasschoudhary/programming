@@ -1,0 +1,30 @@
+&& and || operator : 
+
+&& -- both needs to be true
+|| -- only one need to be true
+
+&& --
+
+&& > || -->  && has higher precedence than ||
+
+% > * > - > +   -- > just multiplication has higher than - or + 
+
+
+10 ->0
+11 - >1
+
+-Both conditions must be true for the entire expression to be true.
+-If any part is false, the entire expression becomes false.
+
+example : 
+true && false => false
+true && true => true
+
+
+||  --
+
+10 ->1
+11 ->1
+
+-If any one condition is true, the whole expression becomes true.
+-Only when all parts are false will the result be false.
